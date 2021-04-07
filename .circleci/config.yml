@@ -68,13 +68,13 @@ jobs:
       TARGET: x86_64-unknown-linux-gnu
 
   test:
+    environment:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     docker:
       - image: majorz/rust-test-deploy:rust-nightly-2018-01-08
     steps:
       - checkout
 
-    environment:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run:
           name: DEBUG TOKEN!
           command: echo $GITHUB_TOKEN
